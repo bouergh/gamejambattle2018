@@ -286,11 +286,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1366019704161482, guid: 68d03216830e84b4aa29b57dbf8e32e0,
     type: 2}
   m_PrefabInternal: {fileID: 703046172}
---- !u!4 &159486080 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4802523922744820, guid: 68d03216830e84b4aa29b57dbf8e32e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 703046172}
 --- !u!1001 &181277871
 Prefab:
   m_ObjectHideFlags: 0
@@ -366,7 +361,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 17, y: 220}
-  m_SizeDelta: {x: 1500, y: 500}
+  m_SizeDelta: {x: 1800, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256720960
 MonoBehaviour:
@@ -400,9 +395,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'GREEN HAS TO KILL RED
+  m_Text: 'GREEN (ARROWS) HAS TO KILL RED
 
-    BLUE HAS TO SAVE HIM
+    BLUE (WASD) HAS TO SAVE HIM
 
     PUSH THE WHITE BLOCKS
 
@@ -451,11 +446,6 @@ Prefab:
     - target: {fileID: 4585314278529344, guid: fd117e24916f6f040b2a0cb18cc49183, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 54072343638836412, guid: fd117e24916f6f040b2a0cb18cc49183,
-        type: 2}
-      propertyPath: m_Mass
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fd117e24916f6f040b2a0cb18cc49183, type: 2}
@@ -606,47 +596,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 388102737}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &402993958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 402993959}
-  - component: {fileID: 402993960}
-  m_Layer: 11
-  m_Name: Detection
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &402993959
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 402993958}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 159486080}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &402993960
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 402993958}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &413897554 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970,
@@ -983,34 +932,6 @@ Prefab:
     - target: {fileID: 4802523922744820, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433111109051476, guid: 68d03216830e84b4aa29b57dbf8e32e0,
-        type: 2}
-      propertyPath: dodgeDistance
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433111109051476, guid: 68d03216830e84b4aa29b57dbf8e32e0,
-        type: 2}
-      propertyPath: dodgeSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433111109051476, guid: 68d03216830e84b4aa29b57dbf8e32e0,
-        type: 2}
-      propertyPath: floatDistMargin
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1366019704161482, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}
-      propertyPath: m_TagString
-      value: Robot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1366019704161482, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 114433111109051476, guid: 68d03216830e84b4aa29b57dbf8e32e0,
-        type: 2}
-      propertyPath: speed
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}

@@ -7,7 +7,7 @@ public class RobotMove : MonoBehaviour {
 	private GameManager gm;
 	public float speed = 3f;
 	public float dodgeSpeed = 10f;
-	public float dodgeDistance = 9f;
+	public float dodgeDistance = 1f;
 	public float floatDistMargin = 0.5f;
 	private bool dodging;
 
@@ -32,10 +32,39 @@ public class RobotMove : MonoBehaviour {
 		rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,-speed);
 	}
 
-	IEnumerator Dodge(){
+	IEnumerator Dodge(Collider col){
+
+		float gap = 20f; //juste un float qui permet de determiner une position LOIN A GAUCHE
+		// ou LOIN A DROITE de l'objet
+		float distance;
+		bool goLeft = false; //set to true if we dodge left, false if not
+		//find the direction to dodge thanks to collider closest extremity
+		Vector3 leftSide = transform.position + gap*Vector3.left;
+		Vector3 leftFarthersPoint = col.ClosestPointOnBounds(leftSide);
+		Vector3 rightSide = transform.position + gap*Vector3.right;
+		Vector3 rightFarthersPoint = col.ClosestPointOnBounds(rightSide);
+
+		//setting goLeft
+		if((rightFarthersPoint-transform.position).magnitude > (leftFarthersPoint-transform.position).magnitude){
+			goLeft = true;
+		}
+		if(goLeft){
+			distance = (leftFarthersPoint-transform.position).x - dodgeDistance;
+		}else{
+			distance = (rightFarthersPoint-transform.position).x + dodgeDistance;
+		}
+		Debug.Log(distance);
+
+
+
+
+
+
+
+
 		Rigidbody rb = GetComponent<Rigidbody>();
 		//choosing distance and direction random (max is dodgeDistance)
-		float distance = Random.Range(-dodgeDistance, dodgeDistance);
+		//distance = Random.Range(-dodgeDistance, dodgeDistance); OLD
 		float newX  = transform.position.x + distance;
 
 		//new : choosing distance based on best way to dodge object
@@ -59,7 +88,7 @@ public class RobotMove : MonoBehaviour {
 
 	public void OnTriggerStay(Collider other){
 		if(other.CompareTag("Obstacle") && !dodging){
-			StartCoroutine(Dodge());
+			StartCoroutine(Dodge(other));
 		}
 	}
 
