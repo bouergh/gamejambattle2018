@@ -366,7 +366,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 17, y: 220}
-  m_SizeDelta: {x: 1500, y: 500}
+  m_SizeDelta: {x: 1800, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &256720960
 MonoBehaviour:
@@ -400,9 +400,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'GREEN HAS TO KILL RED
+  m_Text: 'GREEN (ARROWS) HAS TO KILL RED
 
-    BLUE HAS TO SAVE HIM
+    BLUE (WASD) HAS TO SAVE HIM
 
     PUSH THE WHITE BLOCKS
 
