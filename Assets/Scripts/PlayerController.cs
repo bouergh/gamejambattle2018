@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	public float speed = 10f;
+	public float speed = 10f, dropForce = 10f;
 	
 	//clavier
 	public string xInput = "Horizontal", yInput = "Vertical", xLook = "HorizontalLook", yLook = "VerticalLook";
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour {
 			if(grabbedObject){
 				grabbedObject.transform.parent = grabbedObjectParent;
 				grabbedObject.isKinematic = false;
+				grabbedObject.AddForce(transform.forward*dropForce, ForceMode.Impulse);
 				grabbedObject = null;
 			}
 		}
