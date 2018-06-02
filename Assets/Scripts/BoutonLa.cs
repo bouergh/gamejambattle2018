@@ -6,7 +6,7 @@ public class BoutonLa : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		GameObject lol;
 	}
 	
 	// Update is called once per frame
