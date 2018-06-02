@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KillObstacles : MonoBehaviour {
+public class KillTag : MonoBehaviour {
 
+	public string killTag;
 	// Use this for initialization
 	void Start () {
 		
@@ -15,7 +16,7 @@ public class KillObstacles : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter(Collider other){
-		if(other.CompareTag("Obstacle")){
+		if(other.CompareTag(killTag)){
 				Destroy(other.gameObject);
 		}
 	}

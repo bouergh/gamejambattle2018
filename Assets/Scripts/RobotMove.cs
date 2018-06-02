@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RobotMove : MonoBehaviour {
     
+	private GameManager gm;
 	public float speed = 3f;
 	public float dodgeSpeed = 10f;
 	public float dodgeDistance = 9f;
@@ -12,7 +13,7 @@ public class RobotMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +38,10 @@ public class RobotMove : MonoBehaviour {
 		float distance = Random.Range(-dodgeDistance, dodgeDistance);
 		float newX  = transform.position.x + distance;
 
+		//new : choosing distance based on best way to dodge object
+		
+
+
 		Debug.Log("start dodging to go to X = "+newX);
 		dodging = true;
 		//moving as fast as dodgeSpeed in the right direction til there
@@ -56,5 +61,9 @@ public class RobotMove : MonoBehaviour {
 		if(other.CompareTag("Obstacle") && !dodging){
 			StartCoroutine(Dodge());
 		}
+	}
+
+	public void OnDestroy(){
+		gm.GreenWins();
 	}
 }
