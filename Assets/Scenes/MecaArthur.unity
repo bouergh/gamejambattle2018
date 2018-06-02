@@ -870,7 +870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &236796377
 Transform:
   m_ObjectHideFlags: 0
@@ -2540,9 +2540,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1571236901025264, guid: 137fc71aab84ea84c8d4235024c385a0, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 1713113357623044, guid: 137fc71aab84ea84c8d4235024c385a0, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581008225847180, guid: 137fc71aab84ea84c8d4235024c385a0,
+        type: 2}
+      propertyPath: xLook
+      value: HorizontalWASD
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581008225847180, guid: 137fc71aab84ea84c8d4235024c385a0,
+        type: 2}
+      propertyPath: yLook
+      value: VerticalWASD
+      objectReference: {fileID: 0}
+    - target: {fileID: 114581008225847180, guid: 137fc71aab84ea84c8d4235024c385a0,
+        type: 2}
+      propertyPath: yLookJoy
+      value: VerticalLookJoy1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 137fc71aab84ea84c8d4235024c385a0, type: 2}
