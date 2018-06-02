@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Vector3 movement = new Vector3(Input.GetAxis(xInput), 0f, Input.GetAxis(yInput));
+		Vector3 movement = new Vector3(Input.GetAxisRaw(xInput), 0f, Input.GetAxisRaw(yInput));
 		GetComponent<Rigidbody>().velocity = speed*movement;
 	}
 }
