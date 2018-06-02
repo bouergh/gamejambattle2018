@@ -57,7 +57,17 @@ public class PlayerController : MonoBehaviour {
 				grabbedObject.AddForce(transform.forward*dropForce, ForceMode.Impulse);
 				grabbedObject = null;
 			}
+
 		}
+	}
+
+	public void Drop(){
+		grabbing = false;
+			if(grabbedObject){
+				grabbedObject.transform.parent = grabbedObjectParent;
+				grabbedObject.isKinematic = false;
+				grabbedObject = null;
+			}
 	}
 
 	public void Drag(Collider collision){
@@ -66,6 +76,7 @@ public class PlayerController : MonoBehaviour {
 			 grabbedObjectParent = grabbedObject.transform.parent;
 			 grabbedObject.transform.parent = transform.Find("Hands");
 			 grabbedObject.isKinematic = true;
+			 grabbedObject.transform.position += 0.75f*(transform.Find("Hands").position - transform.position);
 		 }
 	}
 
