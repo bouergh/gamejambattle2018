@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float speed = 10f;
+	public string xInput = "Horizontal";
+	public string yInput = "Vertical";
 	// Use this for initialization
 	void Start () {
 		
@@ -12,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+		Vector3 movement = new Vector3(Input.GetAxis(xInput), 0f, Input.GetAxis(yInput));
 		GetComponent<Rigidbody>().velocity = speed*movement;
 	}
 }
