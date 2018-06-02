@@ -6,7 +6,6 @@ public class Hands : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -14,17 +13,8 @@ public class Hands : MonoBehaviour {
 		
 	}
 
-	 void OnCollisionEnter(Collision collision){
-
-		 foreach (ContactPoint contact in collision.contacts)
-        {
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
-        }
-
-		 Debug.Log("colliding with stuff");
-		 if(collision.gameObject.CompareTag("Obstacle") && GetComponentInParent<PlayerController>().grabbing){
-			 GetComponentInParent<PlayerController>().Drag(collision.gameObject);
-			 Debug.Log("grabbed Obstacle");
-		 }
+	 void OnTriggerEnter(Collider collision){
+		 Debug.Log("hands collides");
+		GetComponentInParent<PlayerController>().Drag(collision);
 	 }
 }
