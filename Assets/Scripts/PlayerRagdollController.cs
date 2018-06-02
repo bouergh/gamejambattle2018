@@ -47,7 +47,8 @@ public class PlayerRagdollController : MonoBehaviour {
 		Vector3 rot = new Vector3(Input.GetAxisRaw(xLook), 0f, Input.GetAxisRaw(yLook));
 		if(rot.magnitude < minMagnitude)
 			rot = new Vector3(Input.GetAxisRaw(xLookJoy), 0f, Input.GetAxisRaw(yLookJoy));
-		head.transform.LookAt(head.transform.position+rot);
+		head.transform.LookAt(head.transform.position+10f*rot);
+		head.transform.rotation = new Quaternion( 0f, head.transform.rotation.y, 0f, head.transform.rotation.w); 
 	}
 
 	void Grab(){
