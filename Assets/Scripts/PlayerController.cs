@@ -46,10 +46,10 @@ public class PlayerController : MonoBehaviour {
 
 	void Grab(){
 		//only joy for now
-		if(Input.GetButtonDown(grabJoy)){
+		if(Input.GetButtonDown(grabJoy) || Input.GetButtonDown(grab)){
 			grabbing = true;
 		}
-		if(Input.GetButtonUp(grabJoy)){
+		if(Input.GetButtonUp(grabJoy) || Input.GetButtonUp(grab)){
 			grabbing = false;
 			if(grabbedObject){
 				grabbedObject.transform.parent = grabbedObjectParent;
