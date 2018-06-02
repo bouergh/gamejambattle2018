@@ -87,12 +87,18 @@ public class RobotMove : MonoBehaviour {
 
 
 	public void OnTriggerStay(Collider other){
-		if(other.CompareTag("Obstacle") && !dodging){
-			StartCoroutine(Dodge(other));
-		}
+		// if(other.CompareTag("Obstacle") && !dodging){
+		// 	StartCoroutine(Dodge(other));
+		// }
 	}
 
 	public void OnDestroy(){
 		gm.GreenWins();
+	}
+
+	public void OnCollisionEnter(Collision col){
+		if(col.transform.CompareTag("Obstacle") && col.transform.parent.name == "Hands"){
+			col.transform.parent.parent.GetComponent<PlayerController>().Drop();
+		}
 	}
 }
