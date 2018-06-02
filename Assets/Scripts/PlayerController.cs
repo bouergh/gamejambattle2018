@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	public string xInputJoy = "HorizontalJoy1", yInputJoy = "VerticalJoy1", xLookJoy = "HorizontalLookJoy1", yLookJoy = "VerticalLookJoy1";
 	public string grab = "Grab1", grabJoy = "GrabJoy1";
 	public float minMagnitude = 0.01f; //if movement magnitude on joy is inferior to this we go for arrows
+	public bool grabbing;
+	public Rigidbody grabbedObject;
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		Move();
 		Rotate();
+	}
+	void Update(){
 		Grab();
 	}
 
@@ -29,6 +33,7 @@ public class PlayerController : MonoBehaviour {
 		if(movement.magnitude < minMagnitude)
 			movement = new Vector3(Input.GetAxisRaw(xInput), 0f, Input.GetAxisRaw(yInput));
 		GetComponent<Rigidbody>().velocity = speed*movement;
+		if(grabbedObject) grabbedObject.velocity = speed*movement;
 	}
 	void Rotate(){
 		//player rotation
@@ -39,10 +44,30 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Grab(){
-		if(Input.GetButton(grab)){
-			Debug.Log("grabbing");
-		}else{
-			Debug.Log("not grabbing");
+		//only joy for now
+		if(Input.GetButtonDown(grabJoy)){
+			grabbing = true;
+		}
+		if(Input.GetButtonUp(grabJoy)){
+			grabbing = false;
+			if(grabbedObject){
+				grabbedObject = null;
+			}
 		}
 	}
+
+	public void Drag(GameObject go){
+		grabbedObject = go.GetComponent<Rigidbody>();
+	}
+
+	
+	 void OnCollisionEnter(Collision collision){
+
+		 Debug.Log("colliding with stuff");
+		 if(collision.gameObject.CompareTag("Obstacle") && grabbing && !grabbedObject){
+			 grabbedObject = collision.rigidbody;
+			 Debug.Log("grabbed Obstacle");
+		 }
+	 }
+
 }
