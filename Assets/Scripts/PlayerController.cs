@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public float minMagnitude = 0.01f; //if movement magnitude on joy is inferior to this we go for arrows
 	public bool grabbing;
 	public Rigidbody grabbedObject;
+	public Transform grabbedObjectParent;
 	// Use this for initialization
 	void Start () {
 		
@@ -33,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 		if(movement.magnitude < minMagnitude)
 			movement = new Vector3(Input.GetAxisRaw(xInput), 0f, Input.GetAxisRaw(yInput));
 		GetComponent<Rigidbody>().velocity = speed*movement;
-		if(grabbedObject) grabbedObject.velocity = speed*movement;
+		//if(grabbedObject) grabbedObject.velocity = speed*movement;
 	}
 	void Rotate(){
 		//player rotation
@@ -51,23 +52,20 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetButtonUp(grabJoy)){
 			grabbing = false;
 			if(grabbedObject){
+				grabbedObject.transform.parent = grabbedObjectParent;
+				grabbedObject.isKinematic = false;
 				grabbedObject = null;
 			}
 		}
 	}
 
-	public void Drag(GameObject go){
-		grabbedObject = go.GetComponent<Rigidbody>();
-	}
-
-	
-	 void OnCollisionEnter(Collision collision){
-
-		 Debug.Log("colliding with stuff");
-		 if(collision.gameObject.CompareTag("Obstacle") && grabbing && !grabbedObject){
-			 grabbedObject = collision.rigidbody;
-			 Debug.Log("grabbed Obstacle");
+	public void Drag(Collider collision){
+		if(collision.gameObject.CompareTag("Obstacle") && grabbing && !grabbedObject){
+			 grabbedObject = collision.GetComponent<Rigidbody>();
+			 grabbedObjectParent = grabbedObject.transform.parent;
+			 grabbedObject.transform.parent = transform.Find("Hands");
+			 grabbedObject.isKinematic = true;
 		 }
-	 }
+	}
 
 }
