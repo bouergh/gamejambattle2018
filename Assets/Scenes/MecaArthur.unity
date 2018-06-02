@@ -127,35 +127,43 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.00000009556803
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.97
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1.17
       objectReference: {fileID: 0}
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.07375401
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.29401278
+      value: 0.30070576
       objectReference: {fileID: 0}
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.23186675
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9243131
+      value: 0.953717
       objectReference: {fileID: 0}
     - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594976308156648, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 220ced813340fa942a5ee217fffc0970, type: 2}
@@ -554,8 +562,9 @@ GameObject:
   - component: {fileID: 1917723745}
   - component: {fileID: 1917723744}
   - component: {fileID: 1917723747}
+  - component: {fileID: 1917723748}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,7 +577,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1917723742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.77, y: 0, z: -5.47}
+  m_LocalPosition: {x: 2.77, y: 1.34, z: -5.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1800322576}
@@ -641,5 +650,17 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1917723748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1917723742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf25a9c6395ec34db7572346aebf9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
