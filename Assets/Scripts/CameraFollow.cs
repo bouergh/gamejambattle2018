@@ -13,6 +13,8 @@ public class CameraFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		transform.position = robot.transform.position + diff;
+		if(robot){ //throw less error when he's dead
+			transform.position = robot.transform.position + diff;
+		}
 	}
 }
