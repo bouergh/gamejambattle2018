@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 				grabbedObject.isKinematic = false;
 				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
 				grabbedObject.AddForce(hands.transform.forward*dropForce, ForceMode.Impulse);
-				Destroy(grabbedObject.GetComponent<HingeJoint>());
+				Destroy(grabbedObject.GetComponent<FixedJoint>());
 				grabbedObject = null;
 			}
 
@@ -98,9 +98,9 @@ public class PlayerController : MonoBehaviour {
 			 grabbedObjectParent = grabbedObject.transform.parent;
 			 grabbedObject.transform.parent = hands;
 			 //grabbedObject.isKinematic = true;
-			 //grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
+			 grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
 			 grabbedObject.transform.position += 0.75f*(hands.position - transform.position);
-			 HingeJoint hj = grabbedObject.gameObject.AddComponent(typeof(HingeJoint)) as HingeJoint;
+			 FixedJoint hj = grabbedObject.gameObject.AddComponent(typeof(FixedJoint)) as FixedJoint;
 			 hj.connectedBody = rb;
 			 hj.enableCollision = false;
 		 }
