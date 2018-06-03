@@ -13,4 +13,8 @@ public class SceneManagement : MonoBehaviour
         Debug.Log("sceneBuildIndex to load: " + sceneANumber);
         SceneManager.LoadScene(sceneANumber);
     }
+
+    public void LoadSceneName(string name){
+        SceneManager.LoadScene(name);
+    }
 }
