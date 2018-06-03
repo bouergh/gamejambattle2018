@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 	public Rigidbody rb;
 	private Transform hands;
 
+	public float handDistance = 1.5f;
+
 	private float initYAngle;
 	// Use this for initialization
 	void Start () {
@@ -33,9 +35,10 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		Move();
 		Rotate();
+		Grab();
 	}
 	void Update(){
-		Grab();
+		
 	}
 
 	void Move(){
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour {
 				grabbedObject.transform.parent = grabbedObjectParent;
 				grabbedObject.isKinematic = false;
 				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
+				//grabbedObject.freezeRotation = false;
 				grabbedObject.AddForce(hands.transform.forward*dropForce, ForceMode.Impulse);
 				Destroy(grabbedObject.GetComponent<SpringJoint>());
 				grabbedObject = null;
@@ -92,6 +96,9 @@ public class PlayerController : MonoBehaviour {
 				grabbedObject.transform.parent = grabbedObjectParent;
 				grabbedObject.isKinematic = false;
 				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
+				//grabbedObject.freezeRotation = false;
+				//grabbedObject.AddForce(hands.transform.forward*dropForce, ForceMode.Impulse);
+				Destroy(grabbedObject.GetComponent<SpringJoint>());
 				grabbedObject = null;
 			}
 	}
@@ -99,11 +106,14 @@ public class PlayerController : MonoBehaviour {
 	public void Drag(Collider collision){
 		if(collision.gameObject.CompareTag("Obstacle") && grabbing && !grabbedObject){
 			grabbedObject = collision.GetComponent<Rigidbody>();
+			// //old
 			grabbedObjectParent = grabbedObject.transform.parent;
+			//grabbedObject.transform.position = hands.position + handDistance*hands.forward;
 			//grabbedObject.transform.parent = hands;
 			//grabbedObject.isKinematic = true;
+			//grabbedObject.freezeRotation = true;
+
 			grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
-			grabbedObject.transform.position += 0.75f*(hands.position - transform.position);
 			//config du springjoint
 			SpringJoint hj = grabbedObject.gameObject.AddComponent(typeof(SpringJoint)) as SpringJoint;
 			hj.connectedBody = rb;
@@ -113,8 +123,6 @@ public class PlayerController : MonoBehaviour {
 			hj.tolerance = 0.001f;
 			hj.massScale = 100f;
 			hj.connectedMassScale = 100f;
-
-
 		 }
 	}
 
