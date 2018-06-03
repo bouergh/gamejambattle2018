@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 857010240ae1d2b4f83a81c848582ca6
+  - enabled: 1
+    path: Assets/Scenes/Logan_Gym.unity
+    guid: 277c3b919f468994084a38312aec5dca
   m_configObjects: {}

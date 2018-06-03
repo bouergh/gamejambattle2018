@@ -24,6 +24,7 @@ public class Timer : MonoBehaviour {
         if (t < 0.0f) {
             looseText.SetActive(true);
             TimerStop.SetActive(false);
+
         }
 	}
 
