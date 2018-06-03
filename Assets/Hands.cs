@@ -23,7 +23,7 @@ public class Hands : MonoBehaviour {
 	}
 
 	 void OnTriggerStay(Collider collision){
-		 Debug.Log("hands collides");
+		//Debug.Log("hands collides");
 		GetComponentInParent<PlayerController>().Drag(collision);
 	 }
 }
