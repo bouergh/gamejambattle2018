@@ -12,10 +12,12 @@ public class RobotMove : MonoBehaviour {
 	private bool dodging;
 	public Rigidbody blockingObstacle;
 	public float obstaclePush;
+	private float origX;
 
 	// Use this for initialization
 	void Start () {
 		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		origX = transform.position.x;
 	}
 	
 	// Update is called once per frame
@@ -31,6 +33,11 @@ public class RobotMove : MonoBehaviour {
 		//transform.position -= 0.1f*Vector3.forward;
 		//GetComponent<Rigidbody>().velocity = -speed*Vector3.forward;
 		rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,-speed);
+
+		//go back a little to the center of the map
+		rb.velocity += new Vector3(0.01f*(origX-transform.position.x),0f,0f);
+
+		//pas sur de ca jle faisais pour autre chose
 		if(rb.velocity.y<speed/2f && blockingObstacle){
 			blockingObstacle.AddForce(obstaclePush*Vector3.up, ForceMode.Impulse);
 		}
@@ -97,7 +104,7 @@ public class RobotMove : MonoBehaviour {
 	}
 
 	public void OnDestroy(){
-		gm.GreenWins();
+	//	gm.GreenWins();
 	}
 
 	public void OnCollisionEnter(Collision col){

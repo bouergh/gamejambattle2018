@@ -14373,7 +14373,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4802523922744820, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.18
+      value: -1.49
       objectReference: {fileID: 0}
     - target: {fileID: 4802523922744820, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14409,6 +14409,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663113633225980, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68d03216830e84b4aa29b57dbf8e32e0, type: 2}
@@ -15128,17 +15132,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4597623542231886, guid: 7f84991a0a0ce4247a3191197f9cacc9,
     type: 2}
   m_PrefabInternal: {fileID: 178990845}
---- !u!1 &911330503 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1045424511475570, guid: 2ac5537a3456a484798e96bcf8fa1e62,
-    type: 2}
-  m_PrefabInternal: {fileID: 810629691}
---- !u!114 &911330505 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114537198226350790, guid: 2ac5537a3456a484798e96bcf8fa1e62,
-    type: 2}
-  m_PrefabInternal: {fileID: 810629691}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &913440723
 Prefab:
   m_ObjectHideFlags: 0
@@ -15400,7 +15393,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1013845949}
   m_LocalRotation: {x: 0.60876137, y: 0, z: 0, w: 0.7933534}
-  m_LocalPosition: {x: 0, y: 19, z: -5.27}
+  m_LocalPosition: {x: 0, y: 20.91, z: -6.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2043217184}
@@ -15434,10 +15427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7aada1c19c4f04bb66970bb04c8121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 911330505}
+  timerText: {fileID: 0}
   startTime: 0
-  looseText: {fileID: 1505550584}
-  TimerStop: {fileID: 911330503}
+  looseText: {fileID: 0}
+  TimerStop: {fileID: 0}
 --- !u!1001 &1014921528
 Prefab:
   m_ObjectHideFlags: 0
@@ -16350,11 +16343,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4597623542231886, guid: 7f84991a0a0ce4247a3191197f9cacc9,
     type: 2}
   m_PrefabInternal: {fileID: 1069491738}
---- !u!1 &1505550584 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1922156457860400, guid: 2ac5537a3456a484798e96bcf8fa1e62,
-    type: 2}
-  m_PrefabInternal: {fileID: 810629691}
 --- !u!1001 &1510035374
 Prefab:
   m_ObjectHideFlags: 0
