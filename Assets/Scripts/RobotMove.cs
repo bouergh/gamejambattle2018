@@ -109,11 +109,18 @@ public class RobotMove : MonoBehaviour {
 
 	public void OnCollisionEnter(Collision col){
 		if(col.transform.CompareTag("Obstacle")){
-			if(col.transform.parent.name == "Hands"){
-				col.transform.parent.parent.GetComponent<PlayerController>().Drop();
-			}else{
-				blockingObstacle = col.rigidbody;
+
+			SpringJoint sj = col.gameObject.GetComponent<SpringJoint>();
+			if(sj){
+				sj.connectedBody.GetComponent<PlayerController>().Drop();
 			}
+
+			// //old
+			// if(col.transform.parent.name == "Hands"){
+			// 	col.transform.parent.parent.GetComponent<PlayerController>().Drop();
+			// }else{
+			// 	blockingObstacle = col.rigidbody;
+			// }
 		}
 	}
 
