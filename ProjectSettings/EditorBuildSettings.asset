@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Drag And Drop.unity
     guid: 40116c4af15e1444f8e21d1de1f4678f
   - enabled: 1
-    path: Assets/Scenes/MecaArthur.unity
-    guid: 6319bf5820528d54f81deaea46513c49
-  - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 857010240ae1d2b4f83a81c848582ca6
   m_configObjects: {}
