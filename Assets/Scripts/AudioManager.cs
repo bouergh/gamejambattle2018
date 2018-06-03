@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
 	public GameObject myHitSFX;
 	public GameObject myThrow;
 	public GameObject myCountdownSFX;
-
+    private int musicCount;
 	// Use this for initialization
 	void Start () 
 	{
@@ -28,8 +28,13 @@ public class AudioManager : MonoBehaviour
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         Debug.Log(scene.buildIndex);
-        if (scene.name == "Menu 3D") {
-            onMenuStart();
+        if (musicCount <= 0)
+        {
+            if (scene.name == "Menu 3D")
+            {
+                onMenuStart();
+                musicCount++;
+            }
         }
         if (scene.name == "Drag And Drop")
         {

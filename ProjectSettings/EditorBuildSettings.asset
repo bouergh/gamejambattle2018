@@ -17,13 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Logan_Gym.unity
     guid: 277c3b919f468994084a38312aec5dca
-  - enabled: 1
-    path: Assets/Scenes/RedWins.unity
-    guid: a23403b1c02ba5649bbd874d8ac26289
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/BlueWins.unity
     guid: 9095e4353417e7c49b9ddac49016e6fe
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 857010240ae1d2b4f83a81c848582ca6
+  - enabled: 1
+    path: Assets/Scenes/RedWins.unity
+    guid: 669272ae71a98bd4e9ec940eb96b60cc
   m_configObjects: {}
