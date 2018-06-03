@@ -22,7 +22,7 @@ TagManager:
   - BlockZone
   - Robot
   - PlayerNoCollide
-  - 
+  - ObstacleNoCollide
   - 
   - 
   - 

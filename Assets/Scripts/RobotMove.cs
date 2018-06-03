@@ -10,6 +10,8 @@ public class RobotMove : MonoBehaviour {
 	public float dodgeDistance = 1f;
 	public float floatDistMargin = 0.5f;
 	private bool dodging;
+	public Rigidbody blockingObstacle;
+	public float obstaclePush;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +24,6 @@ public class RobotMove : MonoBehaviour {
 		//Debug.Log(transform.position);
 		
 		Move();
-		
 	}
 
 	void Move(){
@@ -30,6 +31,9 @@ public class RobotMove : MonoBehaviour {
 		//transform.position -= 0.1f*Vector3.forward;
 		//GetComponent<Rigidbody>().velocity = -speed*Vector3.forward;
 		rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,-speed);
+		if(rb.velocity.y<speed/2f && blockingObstacle){
+			blockingObstacle.AddForce(obstaclePush*Vector3.up, ForceMode.Impulse);
+		}
 	}
 
 	IEnumerator Dodge(Collider col){
@@ -87,12 +91,24 @@ public class RobotMove : MonoBehaviour {
 
 
 	public void OnTriggerStay(Collider other){
-		if(other.CompareTag("Obstacle") && !dodging){
-			StartCoroutine(Dodge(other));
-		}
+		// if(other.CompareTag("Obstacle") && !dodging){
+		// 	StartCoroutine(Dodge(other));
+		// }
 	}
 
 	public void OnDestroy(){
 		gm.GreenWins();
 	}
+
+	public void OnCollisionEnter(Collision col){
+		if(col.transform.CompareTag("Obstacle")){
+			if(col.transform.parent.name == "Hands"){
+				col.transform.parent.parent.GetComponent<PlayerController>().Drop();
+			}else{
+				blockingObstacle = col.rigidbody;
+			}
+		}
+	}
+
+
 }

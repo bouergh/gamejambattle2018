@@ -14,7 +14,8 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(robot){ //throw less error when he's dead
-			transform.position = robot.transform.position + diff;
+			Vector3 newPos = robot.transform.position + diff;
+			transform.position = new Vector3(transform.position.x, Mathf.Min(newPos.y,transform.position.y), Mathf.Min(newPos.z,transform.position.z)) ;
 		}
 	}
 }

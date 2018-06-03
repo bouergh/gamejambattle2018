@@ -1,36 +1,20 @@
-
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hands : MonoBehaviour
-{
+public class Hands : MonoBehaviour {
 
-    // Use this for initialization
-    void Start()
-    {
+	// Use this for initialization
+	void Start () {
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-
-        foreach (ContactPoint contact in collision.contacts)
-        {
-            Debug.DrawRay(contact.point, contact.normal, Color.white);
-        }
-
-        Debug.Log("colliding with stuff");
-        if (collision.gameObject.CompareTag("Obstacle") && GetComponentInParent<PlayerController>().grabbing)
-        {
-            GetComponentInParent<PlayerController>().Drag(collision.gameObject);
-            Debug.Log("grabbed Obstacle");
-        }
-    }
+	 void OnTriggerStay(Collider collision){
+		 Debug.Log("hands collides");
+		GetComponentInParent<PlayerController>().Drag(collision);
+	 }
 }
