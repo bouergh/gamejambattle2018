@@ -11,7 +11,7 @@ public class Hands : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		rbToFollow = transform.parent.Find("Bip001 Head").GetComponent<Rigidbody>();
+		//rbToFollow = transform.parent.Find("Bip001 Head").GetComponent<Rigidbody>();
 		initialY = transform.localPosition.y;
 		initialD = transform.localPosition;
 	}

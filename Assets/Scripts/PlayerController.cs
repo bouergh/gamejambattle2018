@@ -46,18 +46,20 @@ public class PlayerController : MonoBehaviour {
 		//if(grabbedObject) grabbedObject.velocity = speed*movement;
 	}
 	void Rotate(){
-		//player rotation
-		float x = Input.GetAxisRaw(xLook);
-		float y = Input.GetAxisRaw(yLook);
-		Vector3 rotDir = new Vector3(x, 0f,y);
-		//or with joystick then
+		//player rotation joy
+		
+			float x = Input.GetAxisRaw(xLookJoy);
+			float y = Input.GetAxisRaw(yLookJoy);
+
+			Vector3 rotDir = new Vector3(x, 0f, y);
+		//or with keyboard
 		if(rotDir.magnitude < minMagnitude){
-			x = Input.GetAxisRaw(xLookJoy);
-			y = Input.GetAxisRaw(yLookJoy);
-			rotDir = new Vector3(x, 0f, y);
+			x = Input.GetAxisRaw(xLook);
+			y = Input.GetAxisRaw(yLook);
+			rotDir = new Vector3(x, 0f,y);
 		}
 		if(rotDir.magnitude > minMagnitude)
-			transform.eulerAngles = new Vector3(transform.eulerAngles.x, initYAngle + Mathf.Atan2(Input.GetAxisRaw(xLook), Input.GetAxisRaw(yLook)) * Mathf.Rad2Deg, transform.eulerAngles.z);
+			transform.eulerAngles = new Vector3(transform.eulerAngles.x, initYAngle + Mathf.Atan2(1000f*x, 1000f*y) * Mathf.Rad2Deg, transform.eulerAngles.z);
 
 		//if(rotDir.magnitude > minMagnitude) transform.LookAt(rotDir);
 		//if(rot.magnitude > minMagnitude) rb.rotation = headRotInit*Quaternion.LookRotation(rb.transform.position +10f*rot, Vector3.forward);
