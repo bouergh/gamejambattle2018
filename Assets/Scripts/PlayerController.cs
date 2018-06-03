@@ -14,9 +14,11 @@ public class PlayerController : MonoBehaviour {
 	public float minMagnitude = 0.01f; //if movement magnitude on joy is inferior to this we go for arrows
 	public bool grabbing = false;
 	public Rigidbody grabbedObject;
-	//public Transform grabbedObjectParent;
+	public Transform grabbedObjectParent;
 	public Rigidbody rb;
 	private Transform hands;
+
+	public float handDistance = 1.5f;
 
 	private float initYAngle;
 	// Use this for initialization
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour {
 			grabbing = false;
 
 			if(grabbedObject){
-				//grabbedObject.transform.parent = grabbedObjectParent;
+				grabbedObject.transform.parent = grabbedObjectParent;
 				grabbedObject.isKinematic = false;
 				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
 				//grabbedObject.freezeRotation = false;
@@ -91,7 +93,7 @@ public class PlayerController : MonoBehaviour {
 	public void Drop(){
 		grabbing = false;
 			if(grabbedObject){
-				//grabbedObject.transform.parent = grabbedObjectParent;
+				grabbedObject.transform.parent = grabbedObjectParent;
 				grabbedObject.isKinematic = false;
 				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
 				//grabbedObject.freezeRotation = false;
@@ -104,12 +106,14 @@ public class PlayerController : MonoBehaviour {
 	public void Drag(Collider collision){
 		if(collision.gameObject.CompareTag("Obstacle") && grabbing && !grabbedObject){
 			grabbedObject = collision.GetComponent<Rigidbody>();
-			//grabbedObjectParent = grabbedObject.transform.parent;
+			// //old
+			grabbedObjectParent = grabbedObject.transform.parent;
+			//grabbedObject.transform.position = hands.position + handDistance*hands.forward;
 			//grabbedObject.transform.parent = hands;
 			//grabbedObject.isKinematic = true;
 			//grabbedObject.freezeRotation = true;
-			//grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
-			grabbedObject.transform.position += 0.75f*(hands.position - transform.position);
+
+			grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
 			//config du springjoint
 			SpringJoint hj = grabbedObject.gameObject.AddComponent(typeof(SpringJoint)) as SpringJoint;
 			hj.connectedBody = rb;
