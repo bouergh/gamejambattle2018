@@ -22,16 +22,16 @@ public class AudioManager : MonoBehaviour
     void Awake() {
         Scene currentScene = SceneManager.GetActiveScene();
        
-        if (currentScene.buildIndex == 3) {
+        if (currentScene.name == "Logan_Gym") {
             onGameStart();
         }
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         Debug.Log(scene.buildIndex);
-        if (scene.buildIndex == 0) {
+        if (scene.name == "Menu 3D") {
             onMenuStart();
         }
-        if (scene.buildIndex == 1)
+        if (scene.name == "Drag And Drop")
         {
             onMenuStart();
         }
