@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour {
 		if(collision.gameObject.CompareTag("Obstacle") && grabbing && !grabbedObject){
 			grabbedObject = collision.GetComponent<Rigidbody>();
 			grabbedObjectParent = grabbedObject.transform.parent;
-			grabbedObject.transform.parent = hands;
+			//grabbedObject.transform.parent = hands;
 			//grabbedObject.isKinematic = true;
 			grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
 			grabbedObject.transform.position += 0.75f*(hands.position - transform.position);
