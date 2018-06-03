@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	public Text text;
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(HideMessage());
+		//StartCoroutine(HideMessage());
 	}
 	
 	// Update is called once per frame
@@ -16,16 +16,16 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-	IEnumerator HideMessage(){
-		yield return new WaitForSeconds(3f);
-		text.text = "";
-	}
+	// IEnumerator HideMessage(){
+	// 	yield return new WaitForSeconds(3f);
+	// 	text.text = "";
+	// }
 
-	public void GreenWins(){
-		text.text = "GG Green";
-	}
+	// public void GreenWins(){
+	// 	text.text = "GG Green";
+	// }
 
-	public void BlueWins(){
-		text.text = "GG Blue";
-	}
+	// public void BlueWins(){
+	// 	text.text = "GG Blue";
+	// }
 }
