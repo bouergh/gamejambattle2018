@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RedWinsTrigger : MonoBehaviour {
-
+    public GameObject robot;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +13,14 @@ public class RedWinsTrigger : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        
+        {
+            //call UI RED Wins
+            Debug.Log("RED WINS");
+        }
+        
+    }
 }
