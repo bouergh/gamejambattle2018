@@ -15,9 +15,18 @@ public class PlayerController : MonoBehaviour {
 	public bool grabbing;
 	public Rigidbody grabbedObject;
 	public Transform grabbedObjectParent;
+	public Rigidbody rb;
+	private Transform hands;
+
+	private float initYAngle;
 	// Use this for initialization
 	void Start () {
-		
+		//rb = GetComponent<Rigidbody>();
+		if(!rb){
+			rb = transform.Find("Bip001 Head").GetComponent<Rigidbody>();
+		}
+		hands = transform.Find("Hands");
+		initYAngle = transform.eulerAngles.y;
 	}
 	
 	// Update is called once per frame
@@ -33,16 +42,27 @@ public class PlayerController : MonoBehaviour {
 		Vector3 movement = new Vector3(Input.GetAxisRaw(xInputJoy), 0f, Input.GetAxisRaw(yInputJoy));
 		if(movement.magnitude < minMagnitude)
 			movement = new Vector3(Input.GetAxisRaw(xInput), 0f, Input.GetAxisRaw(yInput));
-		GetComponent<Rigidbody>().velocity = speed*movement;
+		rb.velocity = speed*movement;
 		//if(grabbedObject) grabbedObject.velocity = speed*movement;
 	}
 	void Rotate(){
 		//player rotation
-		Vector3 rot = new Vector3(Input.GetAxisRaw(xLook), 0f, Input.GetAxisRaw(yLook));
-		if(rot.magnitude < minMagnitude)
-			rot = new Vector3(Input.GetAxisRaw(xLookJoy), 0f, Input.GetAxisRaw(yLookJoy));
-		transform.LookAt(transform.position+10f*rot);
-	}
+		float x = Input.GetAxisRaw(xLook);
+		float y = Input.GetAxisRaw(yLook);
+		Vector3 rotDir = new Vector3(x, 0f,y);
+		//or with joystick then
+		if(rotDir.magnitude < minMagnitude){
+			x = Input.GetAxisRaw(xLookJoy);
+			y = Input.GetAxisRaw(yLookJoy);
+			rotDir = new Vector3(x, 0f, y);
+		}
+		if(rotDir.magnitude > minMagnitude)
+			transform.eulerAngles = new Vector3(transform.eulerAngles.x, initYAngle + Mathf.Atan2(Input.GetAxisRaw(xLook), Input.GetAxisRaw(yLook)) * Mathf.Rad2Deg, transform.eulerAngles.z);
+
+		//if(rotDir.magnitude > minMagnitude) transform.LookAt(rotDir);
+		//if(rot.magnitude > minMagnitude) rb.rotation = headRotInit*Quaternion.LookRotation(rb.transform.position +10f*rot, Vector3.forward);
+		}
+
 
 	void Grab(){
 		//only joy for now
@@ -54,7 +74,7 @@ public class PlayerController : MonoBehaviour {
 				grabbedObject.transform.parent = grabbedObjectParent;
 				grabbedObject.isKinematic = false;
 				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
-				grabbedObject.AddForce(transform.forward*dropForce, ForceMode.Impulse);
+				grabbedObject.AddForce(hands.transform.forward*dropForce, ForceMode.Impulse);
 				grabbedObject = null;
 			}
 
@@ -75,11 +95,12 @@ public class PlayerController : MonoBehaviour {
 		if(collision.gameObject.CompareTag("Obstacle") && grabbing && !grabbedObject){
 			 grabbedObject = collision.GetComponent<Rigidbody>();
 			 grabbedObjectParent = grabbedObject.transform.parent;
-			 grabbedObject.transform.parent = transform.Find("Hands");
+			 grabbedObject.transform.parent = hands;
 			 grabbedObject.isKinematic = true;
 			 grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
-			 grabbedObject.transform.position += 0.75f*(transform.Find("Hands").position - transform.position);
+			 grabbedObject.transform.position += 0.75f*(hands.position - transform.position);
 		 }
 	}
+
 
 }
