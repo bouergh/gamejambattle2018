@@ -1,24 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RedWinsTrigger : MonoBehaviour {
-    public GameObject robot;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    private void OnTriggerEnter(Collider other)
+    public GameObject redWins;
+
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Robot"));
+        if (other.CompareTag("Robot"))
         {
-            //call UI RED Wins
-            Debug.Log("RED WINS");
+            SceneManager.LoadScene(4);
+
         }
         
     }
