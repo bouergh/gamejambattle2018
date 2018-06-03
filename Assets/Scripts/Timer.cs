@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour {
 	public Text timerText;
 	public float startTime;
@@ -24,6 +25,7 @@ public class Timer : MonoBehaviour {
         if (t < 0.0f) {
             looseText.SetActive(true);
             TimerStop.SetActive(false);
+            SceneManager.LoadScene(0);
         }
 	}
 
