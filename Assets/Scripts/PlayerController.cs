@@ -50,9 +50,12 @@ public class PlayerController : MonoBehaviour {
 			grabbing = true;
 		}
 		if(Input.GetButtonUp(grabJoy) || Input.GetButtonUp(grab)){
-			Drop();
 			if(grabbedObject){
+				grabbedObject.transform.parent = grabbedObjectParent;
+				grabbedObject.isKinematic = false;
+				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
 				grabbedObject.AddForce(transform.forward*dropForce, ForceMode.Impulse);
+				grabbedObject = null;
 			}
 
 		}
