@@ -50,12 +50,9 @@ public class PlayerController : MonoBehaviour {
 			grabbing = true;
 		}
 		if(Input.GetButtonUp(grabJoy) || Input.GetButtonUp(grab)){
-			grabbing = false;
+			Drop();
 			if(grabbedObject){
-				grabbedObject.transform.parent = grabbedObjectParent;
-				grabbedObject.isKinematic = false;
 				grabbedObject.AddForce(transform.forward*dropForce, ForceMode.Impulse);
-				grabbedObject = null;
 			}
 
 		}
@@ -66,6 +63,7 @@ public class PlayerController : MonoBehaviour {
 			if(grabbedObject){
 				grabbedObject.transform.parent = grabbedObjectParent;
 				grabbedObject.isKinematic = false;
+				grabbedObject.gameObject.layer = LayerMask.NameToLayer("Obstacle");
 				grabbedObject = null;
 			}
 	}
@@ -76,6 +74,7 @@ public class PlayerController : MonoBehaviour {
 			 grabbedObjectParent = grabbedObject.transform.parent;
 			 grabbedObject.transform.parent = transform.Find("Hands");
 			 grabbedObject.isKinematic = true;
+			 grabbedObject.gameObject.layer = LayerMask.NameToLayer("ObstacleNoCollide");
 			 grabbedObject.transform.position += 0.75f*(transform.Find("Hands").position - transform.position);
 		 }
 	}
