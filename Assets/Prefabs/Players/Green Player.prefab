@@ -3137,6 +3137,7 @@ MonoBehaviour:
   grabbedObject: {fileID: 0}
   grabbedObjectParent: {fileID: 0}
   rb: {fileID: 54509014535860686}
+  handDistance: 3
 --- !u!135 &135836102035934320
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -4005,7 +4006,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.06773448, a: 1}
+      maxColor: {r: 0.54901963, g: 0.78431374, b: 0.78431374, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
