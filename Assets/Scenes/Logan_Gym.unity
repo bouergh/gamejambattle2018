@@ -3397,7 +3397,7 @@ Prefab:
     - target: {fileID: 224513202566445974, guid: 27468d6fc1196dc4b852b3602d27f3f7,
         type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 224513202566445974, guid: 27468d6fc1196dc4b852b3602d27f3f7,
         type: 2}
@@ -8442,7 +8442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4597623542231886, guid: 7f84991a0a0ce4247a3191197f9cacc9, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1348755445080166, guid: 7f84991a0a0ce4247a3191197f9cacc9, type: 2}
       propertyPath: m_Name
@@ -8810,6 +8810,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 10.7
       objectReference: {fileID: 0}
+    - target: {fileID: 114122332454044928, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: am
+      value: 
+      objectReference: {fileID: 444800439}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 307b407b5d9cd1443812433a325a5910, type: 2}
   m_IsPrefabParent: 0
@@ -15051,6 +15056,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4805770771776788, guid: cedc24df75e94ac4f853e30d7fecc809,
     type: 2}
   m_PrefabInternal: {fileID: 1290269702}
+--- !u!114 &444800439 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114762233774817350, guid: 99b856b27d35043418bb9a4bab3b7600,
+    type: 2}
+  m_PrefabInternal: {fileID: 591123286}
+  m_Script: {fileID: 11500000, guid: 4a96998ce915a4a29b81a8f383dc319e, type: 3}
 --- !u!1001 &445206631
 Prefab:
   m_ObjectHideFlags: 0
@@ -56231,7 +56242,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462570, guid: d4c686e5f86722a409d1d35154c22d14, type: 2}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 462570, guid: d4c686e5f86722a409d1d35154c22d14, type: 2}
       propertyPath: m_LocalScale.x

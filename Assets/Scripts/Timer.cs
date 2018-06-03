@@ -8,6 +8,9 @@ public class Timer : MonoBehaviour {
 	public float startTime;
     public GameObject looseText;
     public GameObject TimerStop;
+
+	public AudioManager am;
+	private bool countdown = false;
     // Use this for initialization
     void Start () {
 		startTime = 120;
@@ -27,6 +30,11 @@ public class Timer : MonoBehaviour {
             TimerStop.SetActive(false);
             SceneManager.LoadScene("BlueWins");
         }
+
+		if(t < 18f && !countdown){
+			countdown = true;
+			am.onCountdown();
+		}
 	}
 
 
