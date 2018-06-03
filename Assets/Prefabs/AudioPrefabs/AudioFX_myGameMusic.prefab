@@ -148,4 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myClips:
-  - {fileID: 8300000, guid: 7601039267ce74b049021dac78383473, type: 3}
+  - {fileID: 8300000, guid: 879f9d7b38e498b459aa5e6bd3f798c0, type: 3}
