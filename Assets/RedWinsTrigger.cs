@@ -15,8 +15,7 @@ public class RedWinsTrigger : MonoBehaviour {
 	}
     private void OnTriggerEnter(Collider other)
     {
-        
-        
+        if (other.CompareTag("Robot"));
         {
             //call UI RED Wins
             Debug.Log("RED WINS");
