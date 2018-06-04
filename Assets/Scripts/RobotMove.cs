@@ -13,25 +13,22 @@ public class RobotMove : MonoBehaviour {
 	public Rigidbody blockingObstacle;
 	public float obstaclePush;
 	private float origX;
+	public CharacterSelector cs;
 
 	// Use this for initialization
 	void Start () {
-		gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		cs = GameObject.Find("GameManager").GetComponent<CharacterSelector>();
 		origX = transform.position.x;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		//Debug.Log(transform.position);
-		
-		Move();
+		if(cs.start) Move(); //don't move before game start
 	}
 
 	void Move(){
 		Rigidbody rb = GetComponent<Rigidbody>();
-		//transform.position -= 0.1f*Vector3.forward;
-		//GetComponent<Rigidbody>().velocity = -speed*Vector3.forward;
 		rb.velocity = new Vector3(rb.velocity.x,rb.velocity.y,-speed);
 
 		//go back a little to the center of the map
@@ -43,6 +40,25 @@ public class RobotMove : MonoBehaviour {
 		}
 	}
 
+
+	public void OnCollisionEnter(Collision col){
+		if(col.transform.CompareTag("Obstacle")){
+
+			SpringJoint sj = col.gameObject.GetComponent<SpringJoint>();
+			if(sj){
+				sj.connectedBody.GetComponent<PlayerController>().Drop();
+			}
+		}
+	}
+
+
+	// public void OnTriggerStay(Collider other){
+	// 	if(other.CompareTag("Obstacle") && !dodging){
+	// 		StartCoroutine(Dodge(other));
+	// 	}
+	// }
+
+	
 	IEnumerator Dodge(Collider col){
 
 		float gap = 20f; //juste un float qui permet de determiner une position LOIN A GAUCHE
@@ -65,14 +81,7 @@ public class RobotMove : MonoBehaviour {
 			distance = (rightFarthersPoint-transform.position).x + dodgeDistance;
 		}
 		Debug.Log(distance);
-
-
-
-
-
-
-
-
+		
 		Rigidbody rb = GetComponent<Rigidbody>();
 		//choosing distance and direction random (max is dodgeDistance)
 		//distance = Random.Range(-dodgeDistance, dodgeDistance); OLD
@@ -80,8 +89,6 @@ public class RobotMove : MonoBehaviour {
 
 		//new : choosing distance based on best way to dodge object
 		
-
-
 		Debug.Log("start dodging to go to X = "+newX);
 		dodging = true;
 		//moving as fast as dodgeSpeed in the right direction til there
@@ -96,33 +103,6 @@ public class RobotMove : MonoBehaviour {
 		rb.velocity = new Vector3(0f, rb.velocity.y, rb.velocity.z);
 	}
 
-
-	public void OnTriggerStay(Collider other){
-		// if(other.CompareTag("Obstacle") && !dodging){
-		// 	StartCoroutine(Dodge(other));
-		// }
-	}
-
-	public void OnDestroy(){
-	//	gm.GreenWins();
-	}
-
-	public void OnCollisionEnter(Collision col){
-		if(col.transform.CompareTag("Obstacle")){
-
-			SpringJoint sj = col.gameObject.GetComponent<SpringJoint>();
-			if(sj){
-				sj.connectedBody.GetComponent<PlayerController>().Drop();
-			}
-
-			// //old
-			// if(col.transform.parent.name == "Hands"){
-			// 	col.transform.parent.parent.GetComponent<PlayerController>().Drop();
-			// }else{
-			// 	blockingObstacle = col.rigidbody;
-			// }
-		}
-	}
 
 
 }

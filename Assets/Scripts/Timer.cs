@@ -11,33 +11,41 @@ public class Timer : MonoBehaviour {
 
 	public AudioManager am;
 	private bool countdown = false;
+
+	private CharacterSelector cs;
 	public float t = 120f; //variable pour le timer. publique pour les tests plus rapides
     // Use this for initialization
     void Start () {
+		cs = GameObject.Find("GameManager").GetComponent<CharacterSelector>();
 		t = startTime;
 		countdown = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//20s countdown Sound Effect function
-		t -= Time.deltaTime; //faut faire comme ca sinon on peut pas recommencer de partie
 
-		string minutes = ((int) t/60).ToString();
-		string seconds = ((int) t%60).ToString();
+		if(cs.start){	//only countdown when game started
+			
+			//20s countdown Sound Effect function
+			t -= Time.deltaTime; //faut faire comme ca sinon on peut pas recommencer de partie
 
-		timerText.text = minutes + ":" + seconds;
-       
-        if (t < 0.0f) {
-            looseText.SetActive(true);
-            TimerStop.SetActive(false);
-            SceneManager.LoadScene("BlueWins");
-        }
+			string minutes = ((int) t/60).ToString();
+			string seconds = ((int) t%60).ToString();
 
-		if(t < 18f && !countdown){
-			countdown = true;
-			am.onCountdown();
+			timerText.text = minutes + ":" + seconds;
+		
+			if (t < 0.0f) {
+				looseText.SetActive(true);
+				TimerStop.SetActive(false);
+				SceneManager.LoadScene("BlueWins");
+			}
+
+			if(t < 18f && !countdown){
+				countdown = true;
+				am.onCountdown();
+			}
 		}
+
 	}
 
 

@@ -12,7 +12,7 @@ public class Disappear : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	 void Update () {
 		counter += Time.deltaTime;
 		if(counter >= timer){
 			Destroy(gameObject);

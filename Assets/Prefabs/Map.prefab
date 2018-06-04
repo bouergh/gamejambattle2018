@@ -593,14 +593,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568b4e8a9744ef940854f402db5f7498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterA: {fileID: 0}
-  buttonA: {fileID: 0}
-  characterB: {fileID: 0}
-  buttonB: {fileID: 0}
-  characterX: {fileID: 0}
-  buttonX: {fileID: 0}
-  characterY: {fileID: 0}
-  buttonY: {fileID: 0}
+  characters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114853579227206272
 MonoBehaviour:
   m_ObjectHideFlags: 1

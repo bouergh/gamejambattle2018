@@ -29,13 +29,24 @@ public class PlayerController : MonoBehaviour {
 		}
 		hands = transform.Find("Hands");
 		initYAngle = transform.eulerAngles.y;
+
+
+		//zeroing charactercontrol joystick
+		xInputJoy = "";
+		yInputJoy = "";
+		xLookJoy = "";
+		yLookJoy = "";
+		grabJoy = "";
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		Move();
-		Rotate();
-		Grab();
+		if(xInputJoy != ""){ //quick fix with zeroing
+			Move();
+			Rotate();
+			Grab();
+
+		}
 	}
 	void Update(){
 		
@@ -126,5 +137,11 @@ public class PlayerController : MonoBehaviour {
 		 }
 	}
 
-
+	public void AssociateController(int controllerNumber){
+		xInputJoy = "HorizontalJoy"+controllerNumber;
+		yInputJoy = "VerticalJoy"+controllerNumber;
+		xLookJoy = "HorizontalLookJoy"+controllerNumber;
+		yLookJoy = "VerticalLookJoy"+controllerNumber;
+		grabJoy = "GrabJoy"+controllerNumber;
+	}
 }

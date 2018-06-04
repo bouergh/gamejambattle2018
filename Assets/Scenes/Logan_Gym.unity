@@ -3478,7 +3478,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114247006452311022, guid: 27468d6fc1196dc4b852b3602d27f3f7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 27468d6fc1196dc4b852b3602d27f3f7, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &99371110 stripped
@@ -8665,46 +8666,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: characterA
-      value: 
-      objectReference: {fileID: 563226293}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: buttonA
-      value: 
-      objectReference: {fileID: 99371113}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: characterB
-      value: 
-      objectReference: {fileID: 1082620542}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: buttonB
-      value: 
-      objectReference: {fileID: 99371110}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: characterX
-      value: 
-      objectReference: {fileID: 364857546}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: buttonX
-      value: 
-      objectReference: {fileID: 99371111}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: characterY
-      value: 
-      objectReference: {fileID: 1497076352}
-    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
-        type: 2}
-      propertyPath: buttonY
-      value: 
-      objectReference: {fileID: 99371112}
     - target: {fileID: 114853579227206272, guid: 307b407b5d9cd1443812433a325a5910,
         type: 2}
       propertyPath: robot
@@ -8729,6 +8690,51 @@ Prefab:
       propertyPath: TimerStop
       value: 
       objectReference: {fileID: 1865959942}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: characters.Array.data[0]
+      value: 
+      objectReference: {fileID: 563226293}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: characters.Array.data[1]
+      value: 
+      objectReference: {fileID: 1082620542}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: characters.Array.data[2]
+      value: 
+      objectReference: {fileID: 364857546}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: characters.Array.data[3]
+      value: 
+      objectReference: {fileID: 1497076352}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: buttons.Array.data[0]
+      value: 
+      objectReference: {fileID: 99371113}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: buttons.Array.data[1]
+      value: 
+      objectReference: {fileID: 99371110}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: buttons.Array.data[2]
+      value: 
+      objectReference: {fileID: 99371111}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: buttons.Array.data[3]
+      value: 
+      objectReference: {fileID: 99371112}
+    - target: {fileID: 114617484934620380, guid: 307b407b5d9cd1443812433a325a5910,
+        type: 2}
+      propertyPath: canvasRules
+      value: 
+      objectReference: {fileID: 304265412}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 307b407b5d9cd1443812433a325a5910, type: 2}
   m_IsPrefabParent: 0
@@ -9956,6 +9962,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca7587286a308b9468f884a93591e4fe, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &304265412 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1155213024906196, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+    type: 2}
+  m_PrefabInternal: {fileID: 99371109}
 --- !u!1001 &306776278
 Prefab:
   m_ObjectHideFlags: 0
