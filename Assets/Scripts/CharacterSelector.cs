@@ -13,6 +13,7 @@ public class CharacterSelector : MonoBehaviour {
 	public bool start = false; //start observe par Timer et RobotMove pour commencer le jeu
 
 	public GameObject canvasRules;
+	public Rigidbody doorWhichWillFall;
 
 
 	// Use this for initialization
@@ -69,13 +70,18 @@ public class CharacterSelector : MonoBehaviour {
 		//check for start button press
 		if(okgo){
 			for (int i = 0;i < buttons.Length; i++) {
-				if(Input.GetKeyDown("joystick "+(i+1)+" button 7")){
+				if(Input.GetKeyDown("joystick "+(i+1)+" button 7") || Input.GetKeyDown("return")){
 					//Debug.Log("game started");
 					start = true;
 					Destroy(canvasRules); //destroy the how to play
+					doorWhichWillFall.isKinematic = false; //so the door can fall from the robot pushing it
 					//destroy inactive players
 					for(int j =0; j<characters.Length; j++){
-						if(!selected[j]) Destroy(characters[j].gameObject);
+						if(!selected[j]){
+							Destroy(characters[j].gameObject);
+						}else{
+							characters[j].gameObject.GetComponent<Rigidbody>().isKinematic = false; //player can't move before start or bug will happen
+						}
 					}
 				}
 			}

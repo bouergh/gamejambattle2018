@@ -603,6 +603,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  start: 0
+  canvasRules: {fileID: 0}
+  doorWhichWillFall: {fileID: 0}
 --- !u!114 &114853579227206272
 MonoBehaviour:
   m_ObjectHideFlags: 1
