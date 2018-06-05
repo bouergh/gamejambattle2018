@@ -3458,7 +3458,112 @@ Prefab:
       propertyPath: m_Name
       value: CanvasRules
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     m_RemovedComponents: []
+=======
+    - target: {fileID: 224762146755456292, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224208266169059806, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224475843761955924, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224428075296375940, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114291647904801550, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_Text
+      value: 'RB : GRAB & Throw'
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224296549802935668, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 224296549802935668, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612152625979200, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -113
+      objectReference: {fileID: 0}
+    - target: {fileID: 224612152625979200, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 88
+      objectReference: {fileID: 0}
+    - target: {fileID: 114882317535732286, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_Text
+      value: 'RB : GRAB & Throw'
+      objectReference: {fileID: 0}
+    - target: {fileID: 224811025683876296, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 224811025683876296, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224077545950744026, guid: 27468d6fc1196dc4b852b3602d27f3f7,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 74.7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114247006452311022, guid: 27468d6fc1196dc4b852b3602d27f3f7, type: 2}
+>>>>>>> ec4dfe5fd838c54db22b40898a82561c7d2b89aa
   m_ParentPrefab: {fileID: 100100000, guid: 27468d6fc1196dc4b852b3602d27f3f7, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &99371110 stripped
