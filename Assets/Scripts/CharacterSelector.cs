@@ -15,6 +15,11 @@ public class CharacterSelector : MonoBehaviour {
 	public GameObject canvasRules;
 	public Rigidbody doorWhichWillFall;
 
+	public Text startText;
+	private string origStartText;
+	public Text selectText;
+	private bool blinking;
+
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +33,14 @@ public class CharacterSelector : MonoBehaviour {
 			Debug.Log("Press "+buttons[i].name+" to play "+characters[i].gameObject.name);	//debug/editor instructions
 		}
 		start = false;
+		blinking = false;
+
+		//don't show the "press start" at first
+		origStartText = startText.text;
+		startText.text = "";
+		startText.transform.parent.GetComponent<Text>().text = "";
 	}
+	
 	
 	// Update is called once per frame
 	void Update () {
@@ -69,6 +81,20 @@ public class CharacterSelector : MonoBehaviour {
 		}
 		//check for start button press
 		if(okgo){
+
+			for (int i = 0;i < selected.Length; i++) {
+				okgo = okgo && selected[i]; //this time if ALL are valid we hide stuff and highlight START
+			}
+			if(okgo){
+				selectText.text = "";
+				selectText.transform.parent.GetComponent<Text>().text = "";
+				if(!blinking) StartCoroutine(RedBlink(startText));
+			}
+
+			//now show the start text :
+			startText.text = origStartText;
+			startText.transform.parent.GetComponent<Text>().text = origStartText;
+
 			for (int i = 0;i < buttons.Length; i++) {
 				if(Input.GetKeyDown("joystick "+(i+1)+" button 7") || Input.GetKeyDown("return")){
 					//Debug.Log("game started");
@@ -86,6 +112,13 @@ public class CharacterSelector : MonoBehaviour {
 				}
 			}
 		}
+		if(!okgo){
+			for (int i = 0;i < buttons.Length; i++) {
+				if(Input.GetKeyDown("joystick "+(i+1)+" button 7") || Input.GetKeyDown("return")){
+					if(!blinking) StartCoroutine(RedBlink(selectText));
+				}
+			}
+		}
 		
 	}
 
@@ -94,5 +127,21 @@ public class CharacterSelector : MonoBehaviour {
 			selected[playerNumber] = true;
 			buttons[playerNumber].enabled = false;
 			characters[playerNumber].AssociateController(controllerNumber);
+	}
+
+	IEnumerator RedBlink(Text text){
+		print("text blinking");
+		blinking = true;
+		float timer = 0.8f;
+		float delay = 0.1f;
+		float counter = 0f;
+		while(counter < timer){
+			text.color = Color.red;
+			yield return new WaitForSeconds(delay);
+			text.color = Color.white;
+			yield return new WaitForSeconds(delay);
+			counter += 2*delay;
+		}
+		blinking = false;
 	}
 }
